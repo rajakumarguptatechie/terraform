@@ -1,0 +1,16 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+awsinfo.tfvars
+
+# plan files
+*.tfplan
+
+# local files
+*.swp
+.DS_Store
