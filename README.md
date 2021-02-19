@@ -1,2 +1,3 @@
 # terraform
-This is for Terraformcode base which is being used solely for training purpose.
+This is for Terraform code base which is being used solely for training purpose.
+Please don't use for any other purpose.
