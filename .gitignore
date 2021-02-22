@@ -11,6 +11,7 @@ awsinfo.tfvars
 
 # plan files
 *.tfplan
+*.plan
 
 # local files
 *.swp

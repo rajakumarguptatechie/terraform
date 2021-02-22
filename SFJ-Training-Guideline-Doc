@@ -1,0 +1,16 @@
+1. Terraform official boot strap videos (Very Useful) 
+https://learn.hashicorp.com/collections/terraform/aws-get-started
+
+2. Terraform Installation Guide
+a. Download TF binary: https://www.terraform.io/downloads.html
+b. Unzip
+c. Set TF binary path to system PATH
+
+3. Terraform Demo Git Repo (I will keep all Terraform codes here during training)
+https://github.com/rajakumarguptatechie/terraform
+
+4. Terraform CLI References (TF commands)
+https://www.terraform.io/docs/cli/index.html
+
+5. AWS login Info
+SFJ Lab team will provide.
