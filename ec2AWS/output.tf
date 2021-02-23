@@ -1,3 +1,3 @@
-output "address" {
-  value = aws_instance.foo.public_dns
+output "name" {
+  value = aws_instance.foo.public_ip
 }

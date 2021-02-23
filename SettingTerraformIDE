@@ -1,0 +1,15 @@
+1. Need AWS IAM user Access key and Secret key.
+
+2. Install AWS CLI
+https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi
+
+3. Install Visual Studo Code (VSC)
+
+4. Launch VSC and install below extensions
+- AWS Toolkit
+- Terraform autocomplete for AWS
+- Hashicorp Terraform
+
+5. Go to view -> Command Pallete
+- AWS: Create Credential Profile (Enter profile name, access_key and secret_key)
+- AWS: Connect to AWS

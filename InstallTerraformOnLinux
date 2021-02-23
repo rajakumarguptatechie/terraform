@@ -1,0 +1,12 @@
+1. Download Terraform binary zip
+wget https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_arm64.zip
+
+2. unzip 
+
+3. Set binary to system PATH
+export PATh=$PATH:<terraform-binary-dir>
+
+4. Set AWS credential
+export AWS_ACCESS_KEY_ID=<access-key>
+export AWS_SECRET_ACCESS_KEY=<secret-key>
+export AWS_DEFAULT_REGION=<region>

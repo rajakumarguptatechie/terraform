@@ -1,8 +1,10 @@
 resource "aws_vpc" "my_vpc" {
   cidr_block = "172.16.0.0/16"
+  
 
   tags = {
     Name = "tf-example"
+    Team = "Test"
   }
 }
 
@@ -35,6 +37,6 @@ resource "aws_instance" "foo" {
   }
 
   credit_specification {
-    cpu_credits = "unlimited"
+    cpu_credits = "standard"
   }
 }
