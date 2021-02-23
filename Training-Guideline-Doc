@@ -5,6 +5,7 @@ https://learn.hashicorp.com/collections/terraform/aws-get-started
 a. Download TF binary: https://www.terraform.io/downloads.html
 b. Unzip
 c. Set TF binary path to system PATH
+Note: Read more about InstallTerraformOnLinux and SettingTerraformIDE.
 
 3. Terraform Demo Git Repo (I will keep all Terraform codes here during training)
 https://github.com/rajakumarguptatechie/terraform
@@ -13,4 +14,4 @@ https://github.com/rajakumarguptatechie/terraform
 https://www.terraform.io/docs/cli/index.html
 
 5. AWS login Info
-SFJ Lab team will provide.
+Lab team will provide.
