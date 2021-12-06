@@ -1,0 +1,39 @@
+Terraform prerequisites:
+1. GCP
+2. Programming/scripting
+
+Terraform Pros:
+1. Less cost
+2. Less time
+3. Resusable
+4. Less prone to error
+5. Being used in automation
+6. Time to market is small
+7. Platform independent 
+
+Terraform Cons:
+1. Very distructive in nature so more causion need to be used
+2. Addition licencing cost(if enterprize)
+
+
+Various IaC tools available in market:
+GCP:
+1. GUI
+2. Cloud Shell (CLI)
+3. Google cloud deployment manager (IaC)
+
+AWS:
+1. GUI
+2. AWS CLI
+3. Cloud Formation (IaC)
+
+Azure:
+1. GUI
+2. Azure CLI
+3. Azure Resource Manager (ARM) (IaC)
+
+Vagrant (Limited resource creation)
+Ansible
+CloudBolt (CloudBolt)
+CloudHealth(VMWare)
+Terraform (Pltaform independent, any kinda resource)
