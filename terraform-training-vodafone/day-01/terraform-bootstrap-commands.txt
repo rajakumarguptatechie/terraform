@@ -10,3 +10,9 @@ Terraform commands: (https://www.terraform.io/docs/cli/commands/apply.html)
 8. See the terraform state for infrastructure create: terraform show 
 9. Destroy the infrastructure: terraform destroy
 10.See dependency chart: terraform graph | dot -Tsvg > graph.svg (Upload this .svg file to see pictorial graph [https://products.groupdocs.app/viewer/svg])
+
+Note: tflint is third-party utility to check/validate terraform configuration format/syntax.
+1. Install terraform lint (tflint)
+curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+2. Run tflint
+tflint
