@@ -1,0 +1,21 @@
+Install Terraform
+https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
+https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/gcp-get-started
+
+Terraform basic tutorials
+https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/aws-get-started
+https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/gcp-get-started
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+I. Installation on Linux:
+1. Remove if there is already terraform installed (sudo yum remove terraform -y)
+2. Install yum-config-manager to manage your repositories. (sudo yum install -y yum-utils)
+3. sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+4. Install terraform (sudo yum -y install terraform)
+5. Verify terraform (terraform --version)
+
+II. Installation on Windows:
+1. Download the terraform ZIP file from Terraform site. (https://releases.hashicorp.com/terraform/1.0.11/terraform_1.0.11_windows_amd64.zip)
+2. Extract the .exe from the ZIP file to a folder eg C:\Apps\Terraform copy this path location like C:\Apps\terraform\
+3. Add the folder location to your PATH variable, eg: Control Panel -> System -> System settings -> Environment Variables
+4. In System Variables, select Path > edit > new > Enter the location of the Terraform .exe, eg C:\Apps\Terraform then click OK
+5. Open a new CMD/PowerShell and the Terraform command should work (terraform --version)
