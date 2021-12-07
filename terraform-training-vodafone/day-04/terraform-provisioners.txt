@@ -1,6 +1,6 @@
 Terraform provisioners:
 
-## Local-exec
+## Local-exec provisioner
 resource "aws_instance" "web" {
   # ...
 
@@ -20,7 +20,7 @@ resource "aws_instance" "web" {
 }
 
 
-## Remote-exec
+## Remote-exec provisioner
 resource "aws_instance" "web" {
   # ...
   provisioner "remote-exec" {
@@ -31,7 +31,7 @@ resource "aws_instance" "web" {
   }
 }
 
-## External Configuration Management tools (Ex: Puppet)
+## External Configuration Management tools as provisioner (Ex: Puppet)
 resource "aws_instance" "web" {
   # ...
 
