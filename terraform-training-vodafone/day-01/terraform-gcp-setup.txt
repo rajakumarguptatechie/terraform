@@ -12,11 +12,36 @@ Name:   terraform-training
 Key-ID: d058c5d62d8abf813c0cba0c58b43d7a99812aa9
 Key:    Download the key when service account is created
 
-4. Terraform HCL
+4a. GCP setup for Linux
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "3.5.0"
+    }
+  }
+}
 provider "google" {
   credentials = file("/var/tmp/project-terraform-raj-d058c5d62d8a.json") # Service Account key downloaded in step 3.
 
   project = "project-terraform-raj"										 # Project ID created in step 2.
+  region  = "us-central1"
+  zone    = "us-central1-c"
+}
+
+4b. GCP setup for Windows
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "3.5.0"
+    }
+  }
+}
+provider "google" {
+  credentials = file("c:\\Software\\terraform\\terraform-training-vodafone\\project-terraform-raj-effab0ad372f.json")
+
+  project = "project-terraform-raj"
   region  = "us-central1"
   zone    = "us-central1-c"
 }

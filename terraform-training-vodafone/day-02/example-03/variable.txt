@@ -1,0 +1,2 @@
+# Reference doc
+https://www.terraform.io/docs/language/values/variables.html

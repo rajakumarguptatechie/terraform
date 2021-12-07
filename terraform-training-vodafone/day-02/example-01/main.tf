@@ -1,3 +1,5 @@
+# Create VPC and VM on GCP
+
 terraform {
   required_providers {
     google = {
@@ -34,20 +36,6 @@ resource "google_compute_instance" "vm_instance" {
   network_interface {
     network = google_compute_network.vpc_network.name
     access_config {
-    }
-  }
-}
-
-resource "google_storage_bucket" "my_bucket" {
-  name     = "terraform-test01-bucket"
-  location = "us-central1"
-  force_destroy = true
-  lifecycle_rule {
-    condition {
-      age = 3
-    }
-    action {
-      type = "Delete"
     }
   }
 }
