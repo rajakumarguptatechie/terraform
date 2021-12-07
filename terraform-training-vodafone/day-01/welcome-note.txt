@@ -1,5 +1,5 @@
 Terraform prerequisites:
-1. GCP
+1. Infrastructure Provider Information (GCP)
 2. Programming/scripting
 
 Terraform Pros:
