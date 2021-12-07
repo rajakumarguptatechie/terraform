@@ -1,7 +1,7 @@
 Terraform commands: (https://www.terraform.io/docs/cli/commands/apply.html)
 
 1.  Create a directory and go inside that.
-2.  Create terraform manifests files (like main.tf, variable.tf, etc)
+2.  Create terraform manifests files (like main.tf, variable.tf, output.tf, etc)
 3.  Initalize the terraform: terraform init (download provider plugins and store in .terraform directory)
 4.  Check consistent formatting in all of your configuration files: terraform fmt
 5.  Check configuration is syntactically valid: terraform validate
