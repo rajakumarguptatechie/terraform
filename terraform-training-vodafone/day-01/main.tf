@@ -37,17 +37,3 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
 }
-
-resource "google_storage_bucket" "my_bucket" {
-  name     = "terraform-test01-bucket"
-  location = "us-central1"
-  force_destroy = true
-  lifecycle_rule {
-    condition {
-      age = 3
-    }
-    action {
-      type = "Delete"
-    }
-  }
-}
