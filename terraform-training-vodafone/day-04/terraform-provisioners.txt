@@ -1,0 +1,45 @@
+Terraform provisioners:
+
+## Local-exec
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "local-exec" {
+    command = "echo ${self.private_ip} >> private_ips.txt"
+  }
+}
+
+## File provisioner
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "file" {
+    source      = "script.sh"
+    destination = "/tmp/script.sh"
+  }
+}
+
+
+## Remote-exec
+resource "aws_instance" "web" {
+  # ...
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/script.sh",
+      "/tmp/script.sh args",
+    ]
+  }
+}
+
+## External Configuration Management tools (Ex: Puppet)
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "puppet" {
+    server             = aws_instance.puppetmaster.public_dns
+    server_user        = "ubuntu"
+    extension_requests = {
+      pp_role = "webserver"
+    }
+  }
+}

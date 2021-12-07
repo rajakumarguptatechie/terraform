@@ -1,0 +1,94 @@
+﻿## To run ec2 module, boto3 package must be insttaled (pip install boto boto3 --user)
+
+## A Playbook with Ansible EC2 & Ansible Vault – Secure Approach
+
+To use the Ansible vault to securely store your AWS Keys,
+You might need one more file on the same directory where you can save your credentials as variables and encrypt it with the vault.
+
+The file can be imported later within the playbook.
+
+Here is the modified playbook with a secure approach, Ansible Vault
+---
+- name: Create Ec2 instances
+  hosts: localhost
+  # import the secret file
+  vars_files:
+    - secrets.yml
+  gather_facts: false
+  tasks:
+  # Block is a Group of Tasks combined together
+  - name: Get Info Block
+    block: 
+      - name: Get Running instance Info
+        
+        ec2_instance_info:
+        register: ec2info 
+      - name: Print info
+        debug: var="ec2info.instances"
+             
+    # By specifying always on the tag, 
+    # I let this block to run all the time by module_default
+    # this is for security to not create ec2 instances accidentally
+    tags: ['always', 'getinfoonly']
+  - name: Create EC2 Block
+    block: 
+      - name: Launch ec2 instances
+        tags: create_ec2
+        ec2:
+          region: us-east-1
+          key_name: SaravAK-PrivateKey
+          group: app_sec_group
+          instance_type: t2.micro
+          image: ami-2051294a
+          wait: yes
+          wait_timeout: 500
+          count: 1
+          instance_tags:
+            name: appservers
+            os: AmazonLinux
+          monitoring: no
+          vpc_subnet_id: subnet-3d3ef270
+          assign_public_ip: yes
+        register: ec2
+        delegate_to: localhost
+      - name : Add instance to host group
+        add_host:
+          hostname: "{{ item.public_ip }}"
+          groupname: launched
+        loop: "{{ ec2.instances }}"
+      - name: Wait for SSH to come up
+        local_action:
+          module: wait_for
+          host: "{{ item.public_ip }}"
+          port: 22
+          delay: 10
+          timeout: 120
+        loop: "{{ ec2.instances }}"
+    # By specifying never on the tag of this block, 
+    # I let this block to run only when explicitely being called
+    tags: ['never', 'ec2-create']
+
+ 
+# Saving the AWS Secrets
+
+As we have included the secrets.yml file inside our playbook, Now we need to save our AWS KEY and SECRET
+
+This is the content of the secret.yml file
+AWS_ACCESS_KEY_ID: AKIATQ7Q7SGKYB4TT3DX 
+AWS_SECRET_ACCESS_KEY: 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
+
+It is saved as clear text info within the file so whoever opens it can see what is inside, so encrypt it using ansible-vault.
+ansible-vault encrypt secrets.yml 
+New Vault password: 
+Confirm New Vault password: Encryption successful
+
+# Now you have to remember this password and use it while you are starting the playbook.
+
+For Ansible to ask you the password you should use a startup argument named --ask-vault-pass
+ansible-playbook ec2-creation.yml \ 
+--connection=local \ 
+--tags=create_ec2 \ 
+-e "ansible_python_interpreter=/usr/local/bin/python3" \ 
+--ask-vault-pass
+
+It would prompt you for the vault-password as it runs.
