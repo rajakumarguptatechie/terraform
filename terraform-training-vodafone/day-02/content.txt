@@ -1,0 +1,27 @@
+# Day 02 discussion highlights
+
+1. Terraform HCL [Code is written in HCL(Hashi Corp Language)]
+a. terraform
+b. provider
+c. resource
+d. provisioner
+e. module
+f. variable
+g. data
+
+2. Terraform CLI
+a. terraform init
+b. terraform plan
+c. terraform apply
+d. terraform destroy
+
+Terraform lifecycle
+1. Write
+2. Init
+3. Plan(optional)
+4. Apply
+5. Destroy 
+
+Terraform States:
+1. Desired state (main.tf/plan)           => Author's desire of creating resources
+2. Current state (terrform.tfstate/apply) => Current infra created info is saved in terraform.tfstate
