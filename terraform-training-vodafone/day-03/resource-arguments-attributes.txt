@@ -1,0 +1,23 @@
+resoure <resource_type_from_provider> <any-local-name-for-this-resource-type> {
+  name   = value # To give the name of resource created on actual infrastructure provide (VM name on GCP)
+  args02 = value
+  --------------
+  arg0n  = value
+} 
+
+Note: Resource arguments' values can be passed as:
+1. Input variable value
+2. Local variable value
+3. Hard coded value
+4. Reference other resource's attribute
+
+Note for arguments: 
+1. All mandatory arguments must be used
+2. All optional arguments are with choice to use by Author
+
+Note for attributes:
+<resource_type_from_provider>.<any-local-name-for-this-resource-type>.<attribute-of-that-resouce>
+
+Use of <resource_type_from_provider>           => API call (https://cloud.google.com/api?google_compute_instance/ver?3.5.0/PUT)
+Use of <any-local-name-for-this-resource-type> => Referencing resource attributes (google_service_account_key.mykey-01.private_key)
+Use of name inside resource block              => To give the name of resource created on actual infrastructure provide (VM name on GCP)

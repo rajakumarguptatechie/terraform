@@ -1,7 +1,7 @@
 //Passing name variable value here
 #name     = "ramchandragupta-techie"
 
-age      = 25
+#age      = 45
 
 job      = true
 

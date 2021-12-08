@@ -35,11 +35,16 @@ resource "google_service_account" "terraform-rajakumargupta" {
 }
 
 resource "google_service_account_key" "mykey-01" {
-  service_account_id = google_service_account.terraform-rajakumargupta.name
+  service_account_id = google_service_account.terraform-rajakumargupta.id
+}
+
+output "terraform-rajakumargupta-id" {
+  value     = google_service_account.terraform-rajakumargupta.id
 }
 
 output "terraform-rajakumargupta-key" {
   value     = google_service_account_key.mykey-01.private_key
   sensitive = true
 }
+
 

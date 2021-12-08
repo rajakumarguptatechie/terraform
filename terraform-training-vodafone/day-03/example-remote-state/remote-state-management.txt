@@ -1,0 +1,28 @@
+Remote state management
+1. Remote storage setup to store TF state file  (Create GCS bucket 'terraform-state-bucket-001')
+2. Configure terraform manifest to use of 'remote state management'
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "3.5.0"
+    }
+  }
+  backend "gcs" {
+    bucket      = "terraform-state-bucket-001"
+    prefix      = "training"
+    credentials = "c:\\Software\\terraform\\terraform-training-vodafone\\project-terraform-raj-effab0ad372f.json"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

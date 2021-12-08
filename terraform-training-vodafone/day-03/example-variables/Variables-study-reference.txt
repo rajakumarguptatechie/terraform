@@ -1,0 +1,35 @@
+I. How to work upon variables
+1. How to decalre the variable
+2. How to pass the value for variable
+3. How to reference/use that variable
+
+II. Type of variable in Terraform
+1. Input variable  (keyword: variable, Reference-keyword: var)
+2. Output variable (keyword: output, Reference-keyword: output)
+3. Local variables (keyword: locals, Reference-keyword: local)
+
+III. Data type of variables
+1. String
+2. Boolean
+3. Number
+4. List
+5. Map
+6. Object
+7. Set
+8. Tuple
+
+IV. How to pass the value of variables:
+1. Default value   
+2. Var-file (<anyname>.tfvars)
+3. Command-line while applying terraform manifest (-var="<variable-name>=<variable-value>")
+4. Environment variable (TF_VAR_age)
+
+V. Precedence/hierarchy of variables
+1. Command-line (age=55)
+2. Var-file     (age=45)
+3. Environmet   (age=35)
+4. Default      (age=25)
+Final value for age = 55
+
+
+

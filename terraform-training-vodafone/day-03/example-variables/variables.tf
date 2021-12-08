@@ -12,7 +12,7 @@ variable "name" {
 variable "age" {
   description = "Age info"
   type        = number
-  default     = null
+  default     = 25
 }
 
 # Variable type: boolean

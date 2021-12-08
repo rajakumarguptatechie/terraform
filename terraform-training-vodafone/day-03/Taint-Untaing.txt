@@ -1,0 +1,7 @@
+Taint needs: If a particular resource is not working as per expectation in real-time, we can recreate that resource using taint and then apply.
+
+Taint: If we want a particular resource needes to be created in next run of 'terraform apply', we need to taint that resource.
+Ex: terraform.exe taint google_compute_instance.my_vm_001
+
+Untaint: If we want a particular resource needs to be untainted, we need to untaint that resource.
+Ex: terraform.exe untaint google_compute_instance.my_vm_001
