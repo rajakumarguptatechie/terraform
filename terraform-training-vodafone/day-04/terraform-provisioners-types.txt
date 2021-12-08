@@ -3,7 +3,6 @@ Terraform provisioners:
 ## Local-exec provisioner
 resource "aws_instance" "web" {
   # ...
-
   provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
   }
@@ -12,10 +11,15 @@ resource "aws_instance" "web" {
 ## File provisioner
 resource "aws_instance" "web" {
   # ...
-
   provisioner "file" {
     source      = "script.sh"
     destination = "/tmp/script.sh"
+	connection {
+      type        = "ssh"
+      user        = "user01"
+      private_key = file(local.gcp_ssh_pri_key_file)
+      host        = "${self.network_interface.0.access_config.0.nat_ip}"
+    }
   }
 }
 
@@ -34,7 +38,6 @@ resource "aws_instance" "web" {
 ## External Configuration Management tools as provisioner (Ex: Puppet)
 resource "aws_instance" "web" {
   # ...
-
   provisioner "puppet" {
     server             = aws_instance.puppetmaster.public_dns
     server_user        = "ubuntu"
