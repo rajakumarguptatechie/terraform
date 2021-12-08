@@ -2,11 +2,9 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      #version = "3.5.0"
     }
     google-beta = {
       source  = "hashicorp/google-beta"
-      #version = "3.5.0"
     }
   }
 }
@@ -44,6 +42,7 @@ module "service_account" {
   account_id = "my-service-account-00001"
 }
 
+# Referencing Terraform registry module
 module "vpc" {
   source  = "terraform-google-modules/network/google"
   #version = "3.5.0"
