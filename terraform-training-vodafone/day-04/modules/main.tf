@@ -15,15 +15,16 @@ provider "google" {
   zone    = "us-central1-c"
 }
 
+# Referncing local module
 module "my_bucket" {
   source     = "./bucket/"
   name       = "my_test_bucket_00001"
   is_destroy = true
 }
 
+# Referencing github module
 module "service_account" {
-  #source     = "github.com/rajakumarguptatechie/terraform/terraform-training-vodafone/day-04/modules/service_account"
-  source     = "./service_account/"
+  source     = "github.com/rajakumarguptatechie/terraform/terraform-training-vodafone/day-04/modules/service_account"
   account_id = "my-service-account-00001"
 }
 
