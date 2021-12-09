@@ -8,7 +8,13 @@ resource "aws_instance" "web" {
   }
 }
 
-## File provisioner
+Provisioner:
+1. What is provisioner
+2. What script/CMtools are used in provisioner
+a. script(shell/powershell/python)
+b. third-party CM tools(Ansible/Puppet/Chef)
+3. How to use provisioner in terraform manifest (provisioner syntax)## File provisioner
+
 resource "aws_instance" "web" {
   # ...
   provisioner "file" {

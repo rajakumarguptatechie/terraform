@@ -1,3 +1,12 @@
+//
+Setting up web server using terraform
+1. VM should be created
+2. Configure VM for web server (provisioners)
+a. Creating script to configure wer server locally at terraform folder
+b. Copy this script to remote node (provisioner->file)
+c. Run that script to configure web server(provisioner->remote-exec)
+3. Firewall rules
+//
 terraform {
   required_providers {
     google = {
