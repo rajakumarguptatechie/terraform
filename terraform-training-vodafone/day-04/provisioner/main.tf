@@ -19,9 +19,9 @@ resource "google_compute_network" "vpc_network" {
 }
 
 locals {
-  gcp_ssh_user = "mykey"
-  gcp_ssh_pub_key_file = "c:\\Software\\terraform\\terraform-training-vodafone\\gcp_ssh_pub_key_file.txt"
-  gcp_ssh_pri_key_file = "c:\\Software\\terraform\\terraform-training-vodafone\\gcp_ssh_pri_key_file.txt"
+  gcp_ssh_user = "om.prakash"
+  gcp_ssh_pub_key_file = "C:\\Users\\om.prakash\\.ssh\\id_rsa.pub"
+  gcp_ssh_pri_key_file = "C:\\Users\\om.prakash\\.ssh\\id_rsa"
 }
 
 resource "google_compute_instance" "vm001" {
@@ -50,26 +50,28 @@ resource "google_compute_instance" "vm001" {
     destination = "/tmp/apache-setup-script.sh"
     connection {
       type        = "ssh"
-      user        = "mykey"
+      user        = local.gcp_ssh_user
       private_key = file(local.gcp_ssh_pri_key_file)
       host        = "${self.network_interface.0.access_config.0.nat_ip}"
     }
   }
 
   provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      user        = local.gcp_ssh_user
+      private_key = file(local.gcp_ssh_pri_key_file)
+      host        = "${self.network_interface.0.access_config.0.nat_ip}"
+    }
     inline = [
       "chmod +x /tmp/apache-setup-script.sh",
-      "/tmp/script.sh",
+      "/tmp/apache-setup-script.sh",
     ]
   }
 
   provisioner "local-exec" {
-    command = "wget http://${self.network_interface.0.network_ip} >> web-server-response.txt"
+    command = "echo SetUpDone >> web-server-response.txt"
   }
-}
-
-output "web-server-url" {
-  value = "http://${google_compute_instance.vm001.network_interface.0.access_config.0.nat_ip}"
 }
 
 resource "google_compute_firewall" "ssh-traffic" {

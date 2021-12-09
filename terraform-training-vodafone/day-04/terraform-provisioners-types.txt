@@ -28,6 +28,12 @@ resource "aws_instance" "web" {
 resource "aws_instance" "web" {
   # ...
   provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      user        = "user01"
+      private_key = file(local.gcp_ssh_pri_key_file)
+      host        = "${self.network_interface.0.access_config.0.nat_ip}"
+    }
     inline = [
       "chmod +x /tmp/script.sh",
       "/tmp/script.sh args",
