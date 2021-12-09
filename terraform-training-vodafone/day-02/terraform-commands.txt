@@ -2,14 +2,16 @@ Terraform commands: (https://www.terraform.io/docs/cli/commands/apply.html)
 
 1.  Create a directory and go inside that.
 2.  Create terraform manifests files (like main.tf, variable.tf, output.tf, etc)
-3.  Initalize the terraform: terraform init (download provider plugins and store in .terraform directory)
+3a. Initalize the terraform: terraform init (download provider plugins and store in .terraform directory)
+3b. Re-initialize terraform: terraform init -reconfigure (Re-initialize if backend/module/provider altered)
 4.  Check consistent formatting in all of your configuration files: terraform fmt
 5.  Check configuration is syntactically valid: terraform validate
 6a. See terraform plan: terraform plan
 6b. Save plan in file: terraform plan -out=my-first-plan
 6c. See pictorial view of plan: terraform graph (copy the output and paste in http://webgraphviz.com/)
-7a. Create infrastructure: terraform apply (creates state  file called terraform.tfstate in current directory)
+7a. Create infrastructure: terraform apply (creates state file called terraform.tfstate in current directory)
 7b. Create infrastructure using saved plan file: terraform apply my-first-plan
+7c. Apply terraform with auto-approve: terraform apply -auto-approve
 8.  See the terraform state for infrastructure created currently on provider platform: terraform show 
 9a. Dry run before destroying the infrastructure: terraform plan -destroy -out=my-first-destroy-plan
 9b. Destroy infrastructure: terraform destroy
