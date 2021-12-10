@@ -1,0 +1,24 @@
+Multi environment provisioning using Terraform
+1. Split your terraform code in environment wise branches in git repo.
+2. Single Branch for all 3 environments
+
+
+DevOps echo-system security consideration
+SCM:
+1. Dont use public repository for your real products
+2. You must not commit any code that keeps sensitive info
+
+CI/CD:
+1. Use Manage credential
+2. Jenkins login via LDAP
+3. Project level permission needs to be set
+
+Cloud:
+1. Unique Service Account needs to be used for provisioning
+2. Keep safe key of SA
+3. Dont distrubute SA key to SCM/Everyone.
+
+
+
+
+
