@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    stages {
+        stage('Download terraform code from Gihub') { 
+            steps {
+                git branch: 'master', credentialsId: 'jenkins-github-credential', url: 'git@github.com:rajakumarguptatechie/terraform.git'
+            }    
+        }
+        stage('Terraform Ininitialization') {
+            steps {
+                sh """
+                    cd /home/rajagupta/.jenkins/workspace/terraform-deployment/terraform-training-vodafone/${params.manifestLocation}
+                    terraform init -reconfigure
+                """    
+            }
+        }
+        stage('Terraform Plan') {
+            steps {
+                sh """
+                    cd /home/rajagupta/.jenkins/workspace/terraform-deployment/terraform-training-vodafone/${params.manifestLocation}
+                    terraform plan -var='gcp_region={"DEV" = "${params.environmentName}", "TEST" = "${params.environmentName}", "PROD" = "${params.environmentName}"}' -out=plan.${BUILD_NUMBER}
+                """
+            }    
+        }
+        stage('Terraform Apply') {
+            steps {
+                sh """
+                    cd /home/rajagupta/.jenkins/workspace/terraform-deployment/terraform-training-vodafone/${params.manifestLocation}
+                    terraform apply plan.${BUILD_NUMBER}
+                """
+            }
+        }
+    }    
+}
