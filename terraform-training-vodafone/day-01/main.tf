@@ -7,8 +7,14 @@ terraform {
   }
 }
 
+variable "service_account_key" {
+  description = "Service Account Key"
+  type        = string
+  default     = "/home/rajagupta/project-terraform-raj-effab0ad372f.json"
+}
+
 provider "google" {
-  credentials = file("c:\\Software\\terraform\\terraform-training-vodafone\\project-terraform-raj-effab0ad372f.json")
+  credentials = file(var.service_account_key)
 
   project = "project-terraform-raj"
   region  = "us-central1"
