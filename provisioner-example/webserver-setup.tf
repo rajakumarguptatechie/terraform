@@ -93,7 +93,7 @@ output "webserver-ip" {
 ## SSH Public key placing on AWS
 resource "aws_key_pair" "my-key" {
   key_name   = "my-key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDD5cwK17eO1pPdZkoknkFLi1kJ+LB/nTOXguUJ/rIgc18flBfMWPhYC9wVsSPUuelHGQ/aPghlWbVGb+ytbhb4oxXX4qBioiPqjuAD84Xkfa31ams+05CTJbhHGCLTve+gFlvEZ/phc6zDWW6rM76gLbJQh7q2BzVh47hgqFBak+uD0VlDkG3YL6Reeq4kNRCUQcoGAu+lq5ki02wb85W026GM/jHl6Jnt+xeMmvxHCoEOhTC16TO7q5W0sckqwK3vrOJCWMjmrH4sEraew3TQu1qNJ9Lo6RhhtEADZqMnHA0lz2/k8y1ZxEznJiWe6+Nx0VOfDPya7EOxPBC7VrcN"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvDQlu6wWFxan4cIe9/QDDNBfYDsQj9g/NNG/pq2by3rKVEJe4G+ePyMcNXjVuARxEztqAZL9Gb381Kq8TgK7DOx3FLggWZxVzFe2bkybiwx4Ig6WbIg/DNFfrPEnJ1TXMMeiDAPKRUubBknNeDFNZoHdEY/QwZ9GsBpVrDUV9WNmt7dcUiwBNpAQi+zzNZFASmeL8gJ5Mrf9t5Fh30SY1/4Wr/qfTjLzGIbGdvtM1t7ImsQ6wgggurNUXpez9hFevP0iKzcXBjit0RJDhqhWBy4/N8o+c1BbcHveQGKeLnb5B8wP6207djnbLmF0aXPXIYeFNIMxrZ3FQszc/RK51"
 }
 
 ## Security groups with ingress (22,80) and egress (80,443) rules
