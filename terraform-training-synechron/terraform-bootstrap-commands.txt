@@ -1,0 +1,18 @@
+Terraform commands: (https://www.terraform.io/docs/cli/commands/apply.html)
+
+1. Create a directory and go inside that.
+2. Create terraform manifests files (like main.tf, variable.tf, etc)
+3. Initalize the terraform: terraform init
+4. Check consistent formatting in all of your configuration files: terraform fmt
+5. Check configuration is syntactically valid: terraform validate
+6. See terraform plan: terraform plan
+7. Create infrastructure: terraform apply (creates state  file)
+8. See the terraform state for infrastructure create: terraform show 
+9. Destroy the infrastructure: terraform destroy
+10.See dependency chart: terraform graph | dot -Tsvg > graph.svg (Upload this .svg file to see pictorial graph [https://products.groupdocs.app/viewer/svg])
+
+Note: tflint is third-party utility to check/validate terraform configuration format/syntax.
+1. Install terraform lint (tflint)
+curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+2. Run tflint
+tflint
