@@ -16,3 +16,10 @@ Note: tflint is third-party utility to check/validate terraform configuration fo
 curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 2. Run tflint
 tflint
+
+
+Workspace:
+1. Create a new workspace:   terraform workspace new <workspace-name>
+2. Switch to workspace:      terraform workspace select <workspace-name>
+3. List the workspace:       terraform workspace list
+4. Delete workspace:         terraform workspace delete <workspace-name>
